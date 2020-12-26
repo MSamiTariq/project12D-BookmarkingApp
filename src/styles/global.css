@@ -1,0 +1,46 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.bookmarks {
+  height: 100vh;
+  overflow: auto;
+  border-left: 1px solid #ccc;
+  padding-left: 10px;
+}
+
+.bookmarks::-webkit-scrollbar {
+  display: none;
+}
+
+.bookmark-container::-webkit-scrollbar {
+  display: none;
+}
+
+.heading1 {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.form {
+  margin: 0 10px;
+}
+
+.bookmark-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.removeButton {
+  height: 40px;
+}
+/* 
+.bookmarks {
+  width: 50%;
+} */
