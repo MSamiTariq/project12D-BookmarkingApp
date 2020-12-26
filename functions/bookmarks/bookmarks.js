@@ -26,7 +26,7 @@ const resolvers = {
   Query: {
     bookmark: async(root, args, context) => {
       try{
-        var client = new faunadb.Client({ secret: "fnAD9wzSivACBQALoqEICbIHYXr8X_4kG-m07nbO" });
+        var client = new faunadb.Client({ secret: process.env.GATSBY_FAUNADB_SECRET });
         var result = await client.query(  
           q.Map(
             q.Paginate(q.Match(q.Index("all_search_by_url"))),
@@ -50,7 +50,7 @@ const resolvers = {
   },
   Mutation: {
     addBookmark: async (_, {title, url, desc}) => {
-      var client = new faunadb.Client({ secret: "fnAD9wzSivACBQALoqEICbIHYXr8X_4kG-m07nbO" })
+      var client = new faunadb.Client({ secret: process.env.GATSBY_FAUNADB_SECRET })
       console.log("url, desc", url, desc);
       try {
         var result = await client.query(
@@ -76,7 +76,7 @@ const resolvers = {
 
       console.log(id)
       try {
-        var client = new faunadb.Client({ secret: "fnAD9wzSivACBQALoqEICbIHYXr8X_4kG-m07nbO" });
+        var client = new faunadb.Client({ secret: process.env.GATSBY_FAUNADB_SECRET });
         var result = await client.query(
 
           q.Delete(q.Ref(q.Collection("search_by_url"), id))
@@ -92,7 +92,7 @@ const resolvers = {
     },
 
     removeAllBookmarks: async() => {
-      var client = new faunadb.Client({ secret: "fnAD9wzSivACBQALoqEICbIHYXr8X_4kG-m07nbO" })
+      var client = new faunadb.Client({ secret: process.env.GATSBY_FAUNADB_SECRET })
       try {
         var result = await client.query(
           q.Map(
